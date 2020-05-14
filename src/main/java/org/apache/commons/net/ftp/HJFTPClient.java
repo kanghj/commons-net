@@ -5,6 +5,13 @@ import java.net.InetAddress;
 import java.net.SocketException;
 
 public class HJFTPClient extends FTPClient {
+	
+	
+	public static final String name1="webadmin";
+	public static final String name2="ubuntu";
+	public static final String name3="anonymous";
+	public static final String pass1="asd";
+	
 	public void connect(InetAddress host, int port) throws SocketException, IOException {
 		System.out.println("connect!");
 		super.connect(InetAddress.getByName("127.0.0.1"), 2200);
