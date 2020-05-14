@@ -6,7 +6,8 @@ import java.net.SocketException;
 
 public class HJFTPClient extends FTPClient {
 	public void connect(InetAddress host, int port) throws SocketException, IOException {
-		super.connect(InetAddress.getLocalHost(), 2200);
+		System.out.println("connect!");
+		super.connect(InetAddress.getByName("127.0.0.1"), 2200);
 	}
 
 	/**
@@ -26,7 +27,7 @@ public class HJFTPClient extends FTPClient {
 	 *                         be resolved.
 	 */
 	public void connect(String hostname, int port) throws SocketException, IOException {
-		connect(InetAddress.getLocalHost(), 2200);
+		connect(InetAddress.getByName("127.0.0.1"), 2200);
 	}
 
 	/**
@@ -47,7 +48,7 @@ public class HJFTPClient extends FTPClient {
 	 */
 	public void connect(InetAddress host, int port, InetAddress localAddr, int localPort)
 			throws SocketException, IOException {
-		super.connect(InetAddress.getLocalHost(), 2200, localAddr, localPort);
+		super.connect(InetAddress.getByName("127.0.0.1"), 2200, localAddr, localPort);
 	}
 
 
@@ -72,8 +73,7 @@ public class HJFTPClient extends FTPClient {
 	 */
 	public void connect(String hostname, int port, InetAddress localAddr, int localPort)
 			throws SocketException, IOException {
-		_hostname_ = hostname;
-		connect(InetAddress.getLocalHost(), 2200);
+		connect(InetAddress.getByName("127.0.0.1"), 2200);
 	}
 
 	/**
@@ -91,7 +91,7 @@ public class HJFTPClient extends FTPClient {
 	 */
 	public void connect(InetAddress host) throws SocketException, IOException {
 		_hostname_ = null;
-		connect(InetAddress.getLocalHost(), 2200);
+		connect(InetAddress.getByName("127.0.0.1"), 2200);
 	}
 
 	/**
@@ -110,6 +110,6 @@ public class HJFTPClient extends FTPClient {
 	 *                         be resolved.
 	 */
 	public void connect(String hostname) throws SocketException, IOException {
-		connect(InetAddress.getLocalHost(), 2200);
+		connect(InetAddress.getByName("127.0.0.1"), 2200);
 	}
 }
