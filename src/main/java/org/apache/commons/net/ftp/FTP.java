@@ -18,6 +18,7 @@
 package org.apache.commons.net.ftp;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.Writer;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -258,7 +259,7 @@ public class FTP extends SocketClient
      * with a null value, is initialized in {@link #_connectAction_},
      * and set to null in {@link #disconnect}.
      */
-    protected BufferedWriter _controlOutput_;
+    protected Writer _controlOutput_;
 
     /***
      * The default FTP constructor.  Sets the default port to
@@ -416,7 +417,7 @@ public class FTP extends SocketClient
             _controlInput_ = new CRLFLineReader(socketIsReader);
         }
         _controlOutput_ =
-            new BufferedWriter(new OutputStreamWriter(_output_, getControlEncoding()));
+            new HJLoggingWriter(new BufferedWriter(new OutputStreamWriter(_output_, getControlEncoding())));
         if (connectTimeout > 0) { // NET-385
             int original = _socket_.getSoTimeout();
             _socket_.setSoTimeout(connectTimeout);
